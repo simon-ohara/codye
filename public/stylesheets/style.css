@@ -6,3 +6,34 @@ body {
 a {
   color: #00B7FF;
 }
+
+code {
+  white-space: pre;
+  padding: 10px;
+  background-color: whitesmoke;
+  display: block;
+}
+
+.keyword {
+  color: red;
+}
+
+.punctuation {
+  color: pink;
+}
+
+.comment {
+  color: lightGrey;
+}
+
+.string {
+  color: blue;
+}
+
+.function {
+  color: purple;
+}
+
+.operator {
+  color: lightGreen;
+}

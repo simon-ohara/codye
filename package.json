@@ -13,5 +13,13 @@
     "jade": "~1.9.1",
     "morgan": "~1.5.1",
     "serve-favicon": "~2.2.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-copy": "^0.7.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "load-grunt-tasks": "^3.0.0",
+    "prismjs": "file:../../../../var/folders/l1/sh5yrzsj0gq4qrvvvk5hzzw0c760qv/T/npm-37766-5ff4ee7b/1422305832058-0.8592704688198864/f62ffb5c16482dc13ab491c591b82eb2b65b5f2a"
   }
 }
