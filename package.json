@@ -3,9 +3,11 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www"
+    "start": "node ./bin/www",
+    "test": "grunt karma:unit:start watch"
   },
   "dependencies": {
+    "angular": "^1.3.11",
     "body-parser": "~1.10.2",
     "cookie-parser": "~1.3.3",
     "debug": "~2.1.1",
@@ -15,11 +17,20 @@
     "serve-favicon": "~2.2.0"
   },
   "devDependencies": {
+    "angular-mocks": "^1.3.11",
+    "coffee-script": "^1.9.0",
     "grunt": "^0.4.5",
     "grunt-contrib-concat": "^0.5.0",
     "grunt-contrib-copy": "^0.7.0",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-karma": "^0.10.1",
+    "grunt-zombie": "^0.2.1",
+    "jasmine-core": "^2.1.3",
+    "karma": "^0.12.31",
+    "karma-jasmine": "^0.3.5",
+    "karma-phantomjs-launcher": "^0.1.4",
     "load-grunt-tasks": "^3.0.0",
-    "prismjs": "file:../../../../var/folders/l1/sh5yrzsj0gq4qrvvvk5hzzw0c760qv/T/npm-37766-5ff4ee7b/1422305832058-0.8592704688198864/f62ffb5c16482dc13ab491c591b82eb2b65b5f2a"
+    "prismjs": "file:../../../../var/folders/l1/sh5yrzsj0gq4qrvvvk5hzzw0c760qv/T/npm-37766-5ff4ee7b/1422305832058-0.8592704688198864/f62ffb5c16482dc13ab491c591b82eb2b65b5f2a",
+    "zombie": "^2.5.1"
   }
 }

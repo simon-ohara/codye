@@ -1,11 +1,15 @@
-// Inline comment
-function FooBar(some, args) {
-  console.log("Running FooBar!");
-}
+(function() {
 
-/*
- * Block comment
- * on a few lines
- * :)
- */
-var Foo = true;
+  // Inline comment
+  function FooBar(some, args) {
+    console.log("Running FooBar!");
+  }
+
+  /*
+   * Block comment
+   * on a few lines
+   * :)
+   */
+  var Foo = true;
+
+})();

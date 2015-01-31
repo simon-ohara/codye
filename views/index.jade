@@ -1,8 +1,20 @@
 extends layout
 
 block content
+  style(ng-controller='HighlightController')
+    {{ styles() }}
+
   h1= title
   p Welcome to #{title}
 
-  code
-    include codeplates/javascript.html
+  #codepane
+    code
+      include codeplates/javascript.html
+
+  #colorpane(ng-controller='HighlightController')
+    ul
+      li(ng-repeat='group in groups')
+        i(class='{{ "swatch-"+group.name }}')
+        span
+          {{ group.name }}
+

@@ -12,6 +12,22 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
 
+    karma:
+      unit:
+        configFile: 'karma.conf.coffee'
+        background: true
+
+    zombie:
+      options:
+        targetfiles: 'spec/views/index-spec.js'
+
+    concat:
+      client:
+        src: 'scripts/**/*.js'
+        dest: 'public/javascripts/codye-client.js'
+        options:
+          seperator: ';'
+
     copy:
       codeplate:
         expand: true
@@ -23,11 +39,20 @@ module.exports = (grunt) ->
           process: generateCodePlateHtml
 
     watch:
-      files: [cwd + '*']
-      tasks: [codeplate]
+      codeplate:
+        files: [cwd + '*']
+        tasks: [codeplate]
+      client:
+        files: ['scripts/**/*.js', 'spec/scripts/**/*-spec.js']
+        tasks: ['client']
+      acceptance:
+        files: ['views/**/*.jade', 'spec/views/**/*-spec.js']
+        tasks: ['acceptance']
 
    require('load-grunt-tasks')(grunt)
 
    grunt.registerTask 'default', ['watch']
    grunt.registerTask codeplate, ['copy:' + codeplate]
+   grunt.registerTask 'client', ['concat:client', 'karma:unit:run']
+   grunt.registerTask 'acceptance', ['zombie']
 
