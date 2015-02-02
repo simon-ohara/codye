@@ -12,14 +12,25 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
 
+    express:
+      test:
+        options:
+          script: 'spec/test.js'
+
     karma:
       unit:
         configFile: 'karma.conf.coffee'
         background: true
 
-    zombie:
+    protractor:
       options:
-        targetfiles: 'spec/views/index-spec.js'
+        configFile: 'protractor.conf.js'
+        keepAlive: true
+      e2e:
+        options:
+          configFile: 'protractor.conf.js'
+          keepAlive: true
+          noColor: false
 
     concat:
       client:
@@ -49,10 +60,10 @@ module.exports = (grunt) ->
         files: ['views/**/*.jade', 'spec/views/**/*-spec.js']
         tasks: ['acceptance']
 
-   require('load-grunt-tasks')(grunt)
+  require('load-grunt-tasks')(grunt)
 
-   grunt.registerTask 'default', ['watch']
-   grunt.registerTask codeplate, ['copy:' + codeplate]
-   grunt.registerTask 'client', ['concat:client', 'karma:unit:run']
-   grunt.registerTask 'acceptance', ['zombie']
+  grunt.registerTask 'default', ['watch']
+  grunt.registerTask codeplate, ['copy:' + codeplate]
+  grunt.registerTask 'client', ['concat:client', 'karma:unit:run']
+  grunt.registerTask 'acceptance', ['protractor:e2e']
 

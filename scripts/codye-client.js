@@ -3,17 +3,17 @@
 
   CodyeClient.controller('HighlightController', ['$scope', function($scope) {
     var groups = [
-      { name: "comment", color: "rgb(150,150,150)" },
-      { name: "string", color: "rgb(150,150,150)" },
-      { name: "class-name", color: "rgb(150,150,150)" },
-      { name: "regex", color: "rgb(150,150,150)" },
-      { name: "keyword", color: "rgb(150,150,150)" },
-      { name: "boolean", color: "rgb(150,150,150)" },
-      { name: "function", color: "rgb(150,150,150)" },
-      { name: "number", color: "rgb(150,150,150)" },
-      { name: "operator", color: "rgb(150,150,150)" },
-      { name: "ignore", color: "rgb(150,150,150)" },
-      { name: "punctuation", color: "rgb(150,150,150)" } 
+      { name: "comment", color: "black" },
+      { name: "string", color: "black" },
+      { name: "class-name", color: "black" },
+      { name: "regex", color: "black" },
+      { name: "keyword", color: "black" },
+      { name: "boolean", color: "black" },
+      { name: "function", color: "black" },
+      { name: "number", color: "black" },
+      { name: "operator", color: "black" },
+      { name: "ignore", color: "black" },
+      { name: "punctuation", color: "black" } 
     ];
 
     $scope.groups = groups;
@@ -24,10 +24,18 @@
       for( i=0; i<numGroups; i++ ) {
         group = groups[i];
         style += "." +group.name+" { color: "+group.color+" }\n"; 
-        style += ".swatch-" +group.name+" { background-color: "+group.color+" }\n"; 
+        // style += ".swatch-" +group.name+" { background-color: "+group.color+" }\n"; 
       }
 
       return style;
+    };
+
+    $scope.$watch('groups', function() {
+      document.getElementById('styles').innerHTML = $scope.styles();
+    }, true);
+
+    $scope.activate = function(event) {
+      console.log(event);
     };
   }]);
 })();
