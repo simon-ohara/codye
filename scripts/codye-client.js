@@ -13,8 +13,8 @@
       { name: "number", color: "black" },
       { name: "operator", color: "black" },
       { name: "ignore", color: "black" },
-      { name: "punctuation", color: "black" } 
-    ];
+      { name: "punctuation", color: "black" }
+    ]
 
     $scope.groups = groups;
 
@@ -23,8 +23,8 @@
 
       for( i=0; i<numGroups; i++ ) {
         group = groups[i];
-        style += "." +group.name+" { color: "+group.color+" }\n"; 
-        // style += ".swatch-" +group.name+" { background-color: "+group.color+" }\n"; 
+        style += "." +group.name+" { color: "+group.color+" }\n";
+        // style += ".swatch-" +group.name+" { background-color: "+group.color+" }\n";
       }
 
       return style;

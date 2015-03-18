@@ -1,0 +1,25 @@
+#!/bin/bash
+
+export LANGUAGE=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+locale-gen en_US.UTF-8
+dpkg-reconfigure
+
+echo "Installing Node.js..."
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+apt-get install -y nodejs build-essential
+
+echo "Installing Grunt CLI..."
+npm install -g grunt-cli
+
+echo "Checking for package.json..."
+cd /vagrant/
+
+if [[ -f "package.json" ]]; then
+  echo "A package.json was found!"
+  echo "Installing Node packages..."
+  npm install
+fi
+
+echo "Setup complete!!"

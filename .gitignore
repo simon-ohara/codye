@@ -2,3 +2,5 @@ node_modules/
 views/codeplates
 public/javascripts/
 public/stylesheets/
+*.log
+.vagrant/
