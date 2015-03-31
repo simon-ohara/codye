@@ -3,15 +3,16 @@ extends layout
 block content
   style#styles
 
-  #settings(ng-controller='HighlightController')
-    h1= title
-    p Welcome to #{title}
+  div
+    #settings(ng-controller='HighlightController')
+      h1= title
+      p Welcome to #{title}
 
-    ul
-      li(ng-repeat='group in groups' ng-click='activate()')
-        input(type='color' ng-model='group.color' name='{{ group.name }}' value='{{ group.color }}')
-        label(for='{{ group.name }}') {{ group.name }}
+      ul
+        li(ng-repeat='group in groups' ng-click='activate()')
+          input(type='color' ng-model='group.color' name='{{ group.name }}' value='{{ group.color }}')
+          label(for='{{ group.name }}') {{ group.name }}
 
-  #preview
-    code
-      include codeplates/javascript.html
+    #preview
+      code
+        include codeplates/javascript.html

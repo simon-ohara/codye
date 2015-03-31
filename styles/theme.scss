@@ -1,3 +1,10 @@
+@import
+  "bourbon"
+, "neat"
+;
+
+$max-width: 100%;
+
 html {
   height: 100%;
 }
@@ -7,6 +14,13 @@ body {
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   height: 100%;
+  @include outer-container;
+
+  > div {
+    @include fill-parent;
+    @include row(table);
+    height: 100%;
+  }
 }
 
 a {
@@ -18,11 +32,11 @@ code {
 }
 
 #settings {
-  width: 260px;
-  background-color: grey;
-  float: left;
+  @include span-columns(4);
+  @include pad;
+  background-color: #FEFEFE;
   height: 100%;
-  padding: 50px 20px;
+  // padding: 50px 20px;
 
   h1 {
     margin-top: 0;
@@ -30,7 +44,10 @@ code {
 }
 
 #preview {
-  background-color: whitesmoke;
+  @include span-columns(8);
+  @include reset-display;
+  @include pad;
+  background-color: #F2ECE5;
   height: 100%;
   padding: 50px;
   margin-left: 300px;
