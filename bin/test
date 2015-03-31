@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-webdriver-manager update
-webdriver-manager start &
-
-grunt karma:unit:start watch

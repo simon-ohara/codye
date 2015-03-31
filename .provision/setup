@@ -8,7 +8,7 @@ dpkg-reconfigure
 
 echo "Installing Node.js..."
 curl -sL https://deb.nodesource.com/setup | sudo bash -
-apt-get install -y nodejs build-essential
+apt-get install -y nodejs build-essential git
 
 echo "Installing Grunt CLI..."
 npm install -g grunt-cli
@@ -21,5 +21,8 @@ if [[ -f "package.json" ]]; then
   echo "Installing Node packages..."
   npm install
 fi
+
+npm install --save-dev PrismJS/prism
+sudo npm install express-generator -g
 
 echo "Setup complete!!"

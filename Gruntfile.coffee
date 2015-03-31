@@ -12,26 +12,6 @@ module.exports = (grunt) ->
   grunt.initConfig
     pkg: grunt.file.readJSON 'package.json'
 
-    express:
-      test:
-        options:
-          script: 'spec/test.js'
-
-    karma:
-      unit:
-        configFile: 'karma.conf.coffee'
-        background: true
-
-    protractor:
-      options:
-        configFile: 'protractor.conf.js'
-        keepAlive: true
-      e2e:
-        options:
-          configFile: 'protractor.conf.js'
-          keepAlive: true
-          noColor: false
-
     concat:
       client:
         src: 'scripts/**/*.js'
@@ -48,17 +28,6 @@ module.exports = (grunt) ->
         rename: (dest, src) -> dest + src.substring(0, src.indexOf('.')) + '.html'
         options:
           process: generateCodePlateHtml
-
-    watch:
-      codeplate:
-        files: [cwd + '*']
-        tasks: [codeplate]
-      client:
-        files: ['scripts/**/*.js', 'spec/scripts/**/*-spec.js']
-        tasks: ['client']
-      acceptance:
-        files: ['views/**/*.jade', 'spec/views/**/*-spec.js']
-        tasks: ['acceptance']
 
   require('load-grunt-tasks')(grunt)
 

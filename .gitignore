@@ -1,6 +1,6 @@
 node_modules/
 views/codeplates
-public/javascripts/
+public/javascripts/*.js
 public/stylesheets/
 *.log
 .vagrant/
