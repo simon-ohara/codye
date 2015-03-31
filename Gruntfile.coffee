@@ -29,10 +29,15 @@ module.exports = (grunt) ->
         options:
           process: generateCodePlateHtml
 
+    watch:
+      client:
+        files: ['scripts/**/*.js', 'spec/scripts/**/*-spec.js']
+        tasks: ['client']
+
   require('load-grunt-tasks')(grunt)
 
   grunt.registerTask 'default', ['watch']
   grunt.registerTask codeplate, ['copy:' + codeplate]
-  grunt.registerTask 'client', ['concat:client', 'karma:unit:run']
+  grunt.registerTask 'client', ['concat:client']
   grunt.registerTask 'acceptance', ['protractor:e2e']
 
