@@ -43,6 +43,10 @@ module.exports = (grunt) ->
           process: generateCodePlateHtml
 
     watch:
+      codeplate:
+        files: [cwd + '*']
+        tasks: [codeplate]
+
       client:
         files: ['scripts/**/*.js', 'spec/scripts/**/*-spec.js']
         tasks: ['client']

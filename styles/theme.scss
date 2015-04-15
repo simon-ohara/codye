@@ -10,16 +10,18 @@ html {
 }
 
 body {
+  @include outer-container;
+
   padding: 0;
   margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   height: 100%;
-  @include outer-container;
+  max-height: 100%;
+  overflow: hidden;
 
   > div {
     @include fill-parent;
     @include row(table);
-    height: 100%;
   }
 }
 
@@ -50,6 +52,12 @@ code {
   background-color: #F2ECE5;
   height: 100%;
   padding: 50px;
-  margin-left: 300px;
+  position: absolute;
+  overflow-y: scroll;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
