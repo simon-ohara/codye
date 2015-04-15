@@ -8,7 +8,14 @@ module.exports = (grunt) ->
 
   generateCodePlateHtml = (content, filepath) ->
     language = filepath.substr(0, filepath.indexOf('.')).replace(cwd, '')
-    return Prism.highlight(content, Prism.languages[language])
+    highlightedContent = Prism.highlight(content, Prism.languages[language])
+
+    return ['<ul>']
+      .concat( highlightedContent.split('\n').map( (line, number) ->
+        return '<li data-line-number="' + (number+1) + '">' + line + '</li>'
+      ))
+      .concat(['</ul>'])
+      .join('')
 
   generateStyles = () ->
     themeFile = 'public/stylesheets/theme.css'

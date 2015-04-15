@@ -1,7 +1,6 @@
 @import
-  "bourbon"
-, "neat"
-;
+  "bourbon",
+  "neat";
 
 $max-width: 100%;
 
@@ -19,7 +18,7 @@ body {
   max-height: 100%;
   overflow: hidden;
 
-  > div {
+  main {
     @include fill-parent;
     @include row(table);
   }
@@ -48,16 +47,36 @@ code {
 #preview {
   @include span-columns(8);
   @include reset-display;
-  @include pad;
   background-color: #F2ECE5;
   height: 100%;
-  padding: 50px;
   position: absolute;
   overflow-y: scroll;
   overflow-x: hidden;
 
+  color: #959392;
+
   &::-webkit-scrollbar {
     display: none;
   }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+
+    &:before {
+      content: attr(data-line-number);
+      display: inline-block;
+      width: 30px;
+      text-align: right;
+      background-color: #E6E0D9;
+      padding: 3px 5px
+    }
+  }
+
+
 }
 
