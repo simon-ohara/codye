@@ -9,6 +9,19 @@ module.exports = (grunt) ->
   generateCodePlateHtml = (content, filepath) ->
     language = filepath.substr(0, filepath.indexOf('.')).replace(cwd, '')
     highlightedContent = Prism.highlight(content, Prism.languages[language])
+    .replace /(<span\b[^>]*>)([^<]+)<\/span>/ig, (fullTag, startTag) ->
+      if fullTag.indexOf('\n') > -1
+        return fullTag.split('\n').map( (lineContent, lineNumber, linesArray) ->
+          if lineNumber
+            lineContent = startTag + lineContent
+
+          if lineNumber != (linesArray.length - 1)
+            lineContent = lineContent + '</span>'
+
+          return lineContent
+        ).join('\n')
+
+      return fullTag
 
     return ['<ul>']
       .concat( highlightedContent.split('\n').map( (line, number) ->
