@@ -8,7 +8,7 @@ dpkg-reconfigure
 
 echo "Installing Node.js..."
 curl -sL https://deb.nodesource.com/setup | sudo bash -
-apt-get install -y nodejs build-essential git
+apt-get install -y nodejs build-essential git libfontconfig
 
 echo "Installing Grunt CLI..."
 npm install -g grunt-cli
